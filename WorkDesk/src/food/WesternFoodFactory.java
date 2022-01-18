@@ -22,7 +22,8 @@ public class WesternFoodFactory extends FoodFactory {
 	@Override
 	public SideDish createSideDish() {
 		// TODO Auto-generated method stub
-		return new Fries();
+//		return new Fries();
+		return null;
 		
 	}
 
