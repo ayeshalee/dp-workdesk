@@ -6,7 +6,8 @@ public class Location {
 
     double x;
     double y;
-    public static final String BASIC_PATH = "D:\\code\\dp-workdesk\\WorkDesk\\src\\";
+    public static final String BASIC_PATH = "D:\\code\\1_NetBeans-Projects\\WIF3007 Design Patterns\\WorkDesk\\src\\";
+    public static final String BASIC_URI = "D:/code/1_NetBeans-Projects/WIF3007 Design Patterns/WorkDesk/src/";
     public static String path = BASIC_PATH + "assets\\";
     ImageView imageView;
 

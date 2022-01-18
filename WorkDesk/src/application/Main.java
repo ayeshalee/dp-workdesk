@@ -1,7 +1,7 @@
 package application;
 
 import base.Base;
-import computer.MonitorFacade;
+import computer.ComputerFacade;
 import food.Food;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -62,7 +62,7 @@ public class Main extends Application {
 
             new Food(content, buttonMenu);
 
-            new MonitorFacade(content, buttonMenu);
+            new ComputerFacade(content, buttonMenu);
 
         } catch (Exception e) {
             e.printStackTrace();

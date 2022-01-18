@@ -24,15 +24,6 @@ public class Screen {
         this.screenGroup = group;
     }
 
-    public void onScreen() {
-        this.setScreen("screen2.png");
-    }
-
-    public void offScreen() {
-        System.out.println("Shutting down");
-        this.screenView.setNullImageView();
-    }
-
     public void setScreen(String screenName) {
         System.out.println("Setting " + screenName + " screen");
         try {
@@ -43,9 +34,20 @@ public class Screen {
         }
     }
 
+    public void onScreen() {
+        System.out.println("Starting up...");
+        this.setScreen("screen2.png");
+    }
+
+    public void offScreen() {
+        System.out.println("Shutting down..");
+        this.screenView.setNullImageView();
+    }
+
     public void shuffle(String mode) {
-        String screenName = "screen-"+mode + ".png";
-//        System.out.println(screenName);
+        System.out.println("Changing screen..");
+        this.screenView.setNullImageView();
+        String screenName = "screen-" + mode + ".gif";
         setScreen(screenName);
     }
 
