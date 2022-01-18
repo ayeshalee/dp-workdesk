@@ -21,5 +21,5 @@ public class CustomImageView extends Location {
     public void setNullImageView() {
         this.imageView.setImage(null);
     }
-
+    
 }
