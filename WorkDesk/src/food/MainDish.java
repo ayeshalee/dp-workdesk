@@ -2,9 +2,22 @@ package food;
 
 import javafx.scene.image.ImageView;
 
-public interface MainDish {
+abstract class MainDish {
 
-	public ImageView getImageView();
+	String name;
+	FoodImageView imageView; 
 	
-	public void setMainDish(MainDish mainDish);
+	public ImageView getImageView() {
+		return this.imageView.getImageView();
+	}
+	
+	public void setMainDish(MainDish mainDish) {
+		this.imageView.getImageView().setImage(mainDish.getImageView().getImage());
+		this.imageView.getImageView().setX(mainDish.getImageView().getX());
+		this.imageView.getImageView().setY(mainDish.getImageView().getY());
+	}
+	
+	public String getName() {
+		return this.name;
+	}
 }

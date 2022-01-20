@@ -4,13 +4,12 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class NasiLemak extends MainDish {
-	
-	public NasiLemak() {
-		this.name = "Nasi Lemak";
-		
+public class Coke extends Drink{
+
+	public Coke() {
+		this.name = "Coke";
 		try {
-			this.imageView = new FoodImageView(270.5, 406.5, "nasi_lemak.png");
+			this.imageView = new FoodImageView(409.5, 394.3, "coke.png");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

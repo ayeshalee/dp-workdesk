@@ -80,14 +80,14 @@ public class Base {
             CustomImageView monitor = new CustomImageView(503.1, 291, "monitor.png");
             this.group.getChildren().add(monitor.getImageView());
 
-//            CustomImageView screen2 = new CustomImageView(513.9, 301.5, "screen2.png");
-//            this.group.getChildren().add(screen2.getImageView());
-
             CustomImageView right_speaker = new CustomImageView(716.5, 395.4, "right_speaker.png");
             this.group.getChildren().add(right_speaker.getImageView());
 
             CustomImageView left_speaker = new CustomImageView(472.2, 395.4, "left_speaker.png");
             this.group.getChildren().add(left_speaker.getImageView());
+            
+            CustomImageView spiderman = new CustomImageView(115.2, 170.4, "spiderman.gif");
+			this.group.getChildren().add(spiderman.getImageView());
 
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block

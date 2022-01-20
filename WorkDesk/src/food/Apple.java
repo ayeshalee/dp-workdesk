@@ -4,16 +4,16 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class Tea extends Drink {
-	
-	public Tea() {
-		this.name = "Tea";
+public class Apple extends SideDish {
+
+	public Apple () {
+		this.name = "Apple ";
 		try {
-			this.imageView = new FoodImageView(408.7, 429.4, "tea.png");
+			this.imageView = new FoodImageView(356.8, 404.2, "apple.png");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
+	
 }

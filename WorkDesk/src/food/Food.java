@@ -3,17 +3,25 @@ package food;
 import base.Location;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 
 public class Food {
 
 	Group group;
 	HBox buttonMenu;
+	Stage stage;
+	Popup popup;
+	Label label;
+	
 	public static final String FOOD_ASSET_PATH = Location.BASIC_PATH + "food\\image\\";
 	String menuType = "Default";
 	
@@ -23,41 +31,49 @@ public class Food {
 	
 	FoodFactory factory;
 	
-	public Food(Group group, HBox buttonMenu) {
+	public Food(Group group, HBox buttonMenu, Stage primaryStage) {
 		this.group = group;
 		this.buttonMenu = buttonMenu;
+		this.stage = primaryStage;
 		this.init();
 		
 	}
 	
 	public void init() {
-		MenuItem menu1 = new MenuItem("Menu 1");
+		
+		MenuItem menu1 = new MenuItem("Fast Food");
+        MenuItem menu2 = new MenuItem("Home Cooked Food");
+        MenuItem menu3 = new MenuItem("Healthy Food");
+        MenuButton menuButton = new MenuButton("Set Food", null, menu1, menu2, menu3);
+        
 		menu1.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
-		        System.out.println("Menu 1");
+		        menuButton.setText(menu1.getText());
 		        setFood(1);
 		    }
          }));
-		 
-        MenuItem menu2 = new MenuItem("Menu 2");
+        
         menu2.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
-		        System.out.println("Menu 2");
+				menuButton.setText(menu2.getText());
 		        setFood(2);
 		    }
          }));
         
-        MenuItem menu3 = new MenuItem("Menu 3 ");
         menu3.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
-		        System.out.println("Menu 3");
+		        menuButton.setText(menu3.getText());
 		        setFood(3);
 		    }
          }));
-        
-        MenuButton menuButton = new MenuButton("Set Food", null, menu1, menu2, menu3);
         this.buttonMenu.getChildren().add(menuButton);
         
+        this.label = new Label("");
+        this.label.setStyle("-fx-font-weight: bold;-fx-text-fill:#5E34B1;-fx-background-color:white;");
+        this.label.setLayoutX(270.5);
+        this.label.setLayoutY(350);
+        this.label.setPadding(new Insets(5, 5, 5, 5));
+        this.group.getChildren().add(this.label);
 	}
 	
 	public void setFood(int menuType) {
@@ -67,11 +83,11 @@ public class Food {
 		SideDish sideDish1 = null;
 		
 		if(menuType == 1) {
-			this.factory = new Set1FoodFactory();
+			this.factory = new FastFoodFactory();
 		}else if (menuType == 2) {
-			this.factory = new Set2FoodFactory();
+			this.factory = new HomeCookedFoodFactory();
 		}else {
-		
+			this.factory = new HealthyFoodFactory();
 		}
 		
 		mainDish1 = this.factory.createMainDish();
@@ -79,35 +95,37 @@ public class Food {
 		sideDish1 = this.factory.createSideDish();
 		
 		this.setView(mainDish1, drink1, sideDish1);
-		
 	}
 	
-	public void setView(MainDish mainDish1, Drink drink1, SideDish sideDish1) {
+	public void setView(MainDish mainDish, Drink drink, SideDish sideDish) {
 		
 		if(this.mainDish == null) {
-			this.group.getChildren().add(mainDish1.getImageView());
-			this.mainDish = mainDish1;
+			this.group.getChildren().add(mainDish.getImageView());
+			this.mainDish = mainDish;
 		}else {
-			this.mainDish.setMainDish(mainDish1);
+			this.mainDish.setMainDish(mainDish);
 		}
-
-		
 		
 		if(this.drink == null) {
-			this.group.getChildren().add(drink1.getImageView());
-			this.drink = drink1;
+			this.group.getChildren().add(drink.getImageView());
+			this.drink = drink;
 		}else {
-			this.drink.setDrink(drink1);
+			this.drink.setDrink(drink);
 		}
 		
 		
 		if(this.sideDish == null) {
-			this.group.getChildren().add(sideDish1.getImageView());
-			this.sideDish = sideDish1;
+			this.group.getChildren().add(sideDish.getImageView());
+			this.sideDish = sideDish;
 		}else {
-			this.sideDish.setSideDish(sideDish1);
+			this.sideDish.setSideDish(sideDish);
 		}
 		
+		String foodText = "Main Dish: " + mainDish.getName() + "\n"
+				+ "Side Dish: " + sideDish.getName() + "\n"
+				+ "Drink: " + drink.getName() + "\n";
+		
+		this.label.setText(foodText);
 	}
 	
 }

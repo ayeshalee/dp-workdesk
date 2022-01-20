@@ -27,21 +27,12 @@ public class Main extends Application {
             Base background = new Base();
             Group backgroundGroup = background.getGroup();
 
-            Button button1 = new Button("Button Number 1");
-            Button button2 = new Button("Button Number 2");
-
-            Label label = new Label("Not clicked");
             Button button = new Button("test");
             button.setLayoutX(250);
             button.setLayoutY(300);
 
-            button.setOnMouseClicked((new EventHandler<MouseEvent>() {
-                public void handle(MouseEvent event) {
-                    System.out.println("Yay click jadi wehh");
-                }
-            }));
 
-            HBox buttonMenu = new HBox(button1, button2, button);
+            HBox buttonMenu = new HBox(button);
             buttonMenu.setAlignment(Pos.TOP_CENTER);
             buttonMenu.setSpacing(10);
 //            buttonMenu.setBackground(new Background(new BackgroundFill(Color.BLUE,null,null)));
@@ -58,9 +49,7 @@ public class Main extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
 
-            content.getChildren().add(label);
-
-            new Food(content, buttonMenu);
+            new Food(content, buttonMenu, primaryStage);
 
             new ComputerFacade(content, buttonMenu);
 
