@@ -4,14 +4,14 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class Burger implements MainDish{
-
-	String name = "Burger";
-	FoodImageView imageView; 
+public class NasiLemak implements MainDish {
 	
-	public Burger() {
+	String name = "Nasi Lemak";
+	FoodImageView imageView; 
+
+	public NasiLemak() {
 		try {
-			this.imageView = new FoodImageView(307, 411.3, "burger.png");
+			this.imageView = new FoodImageView(270.5, 406.5, "nasi_lemak.png");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -21,7 +21,7 @@ public class Burger implements MainDish{
 	public ImageView getImageView() {
 		return this.imageView.getImageView();
 	}
-
+	
 	@Override
 	public void setMainDish(MainDish mainDish) {
 		this.imageView.getImageView().setImage(mainDish.getImageView().getImage());

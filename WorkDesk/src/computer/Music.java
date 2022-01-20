@@ -26,7 +26,7 @@ public class Music {
     MediaPlayer mediaPlayer;
 
     public void setMusic() {
-        System.out.println("Playing " + this.musicName);
+    	System.out.println("Playing " + this.musicName);
         String musicPath = path + this.musicName;
         this.media = new Media(new File(musicPath).toURI().toString());
         this.mediaPlayer = new MediaPlayer(this.media);

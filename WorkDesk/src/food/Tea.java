@@ -4,22 +4,26 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class OrangeJuice implements Drink{
-
-	String name = "Orange Juice";
+public class Tea implements Drink {
+	
+	String name = "Tea";
 	FoodImageView imageView; 
-	public OrangeJuice() {
+
+	public Tea() {
+		// TODO Auto-generated constructor stub
 		try {
-			this.imageView = new FoodImageView(409.5, 394.3, "orange_juice.png");
+			this.imageView = new FoodImageView(408.7, 429.4, "cocoa.gif");
+//			this.imageView = new FoodImageView(408.7, 429.4, "tea.png");
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+	@Override
 	public ImageView getImageView() {
 		return this.imageView.getImageView();
+		
 	}
-
 	@Override
 	public void setDrink(Drink drink) {
 		this.imageView.getImageView().setImage(drink.getImageView().getImage());

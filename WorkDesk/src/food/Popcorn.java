@@ -2,17 +2,16 @@ package food;
 
 import java.io.FileNotFoundException;
 
-import base.CustomImageView;
 import javafx.scene.image.ImageView;
 
-public class Fries implements SideDish {
+public class Popcorn implements SideDish {
 
-	String name = "Fries";
+	String name = "Popcorn";
 	FoodImageView imageView; 
 	
-	public Fries() {
+	public Popcorn() {
 		try {
-			this.imageView = new FoodImageView(361.9, 415.1, "fries.png");
+			this.imageView = new FoodImageView(356.8, 404.2, "popcorn.png");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
