@@ -1,8 +1,8 @@
 package food;
 
-public class WesternFoodFactory extends FoodFactory {
+public class FastFoodFactory extends FoodFactory {
 
-	public WesternFoodFactory() {
+	public FastFoodFactory() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -15,7 +15,7 @@ public class WesternFoodFactory extends FoodFactory {
 	@Override
 	public AbstractDrink createDrink() {
 		// TODO Auto-generated method stub
-		return new OrangeJuice();
+		return new Coke();
 		
 	}
 

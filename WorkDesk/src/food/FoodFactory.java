@@ -2,16 +2,33 @@ package food;
 
 public abstract class FoodFactory {
 
-//	MainDish mainDish;
-//	Drink drink;
-//	SideDish sideDish;
+	AbstractMainDish mainDish;
+	AbstractDrink drink;
+	AbstractSideDish sideDish;
 	
 	public FoodFactory() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public abstract MainDish createMainDish();
-	public abstract Drink createDrink();
-	public abstract SideDish createSideDish();
+	public abstract AbstractMainDish createMainDish();
+	public abstract AbstractDrink createDrink();
+	public abstract AbstractSideDish createSideDish();
+	
+	public final void createFoodFamily() {
+		mainDish = this.createMainDish();
+		drink = this.createDrink();
+		sideDish = this.createSideDish();
+	}
 
+	public AbstractMainDish getMainDish() {
+		return mainDish;
+	}
+	
+	public AbstractDrink getDrink() {
+		return drink;
+	}
+
+	public AbstractSideDish getSideDish() {
+		return sideDish;
+	}
 }

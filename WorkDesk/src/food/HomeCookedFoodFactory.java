@@ -1,28 +1,27 @@
 package food;
 
-public class WesternFoodFactory extends FoodFactory {
+public class HomeCookedFoodFactory extends FoodFactory {
 
-	public WesternFoodFactory() {
+	public HomeCookedFoodFactory() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public AbstractMainDish createMainDish() {
 		// TODO Auto-generated method stub
-		return new Burger();
+		return new NasiLemak();
 	}
 
 	@Override
 	public AbstractDrink createDrink() {
 		// TODO Auto-generated method stub
-		return new OrangeJuice();
-		
+		return new Tea();
 	}
 
 	@Override
 	public AbstractSideDish createSideDish() {
 		// TODO Auto-generated method stub
-		return new Fries();
+		return new Yakisoba();
 		
 	}
 
