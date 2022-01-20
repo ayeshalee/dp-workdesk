@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
@@ -28,6 +29,7 @@ public class ComputerFacade {
     Button increaseVol;
     Button decreaseVol;
     boolean screenOn = false;
+    Label label;
 
     ArrayList<String> modes = new ArrayList<>();
 
@@ -88,11 +90,19 @@ public class ComputerFacade {
         MenuButton menuButton = new MenuButton("Monitor", null, start, mode1, mode2, mode3, shutdown);
         this.buttonMenu.getChildren().add(menuButton);
 
+        this.label = new Label("Volume: 50%");
+        this.label.setStyle("-fx-font: 20 arial; -fx-font-weight: bold;-fx-text-fill:white;");
+        this.label.setLayoutX(600);
+        this.label.setLayoutY(690);
+        this.group.getChildren().add(this.label);
+
         this.increaseVol = new Button("+");
         this.increaseVol.setOnMouseClicked((new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                music.increaseVolume();
+                String newVolume = music.increaseVolume();
+
+                label.setText("Volume: " + newVolume);
             }
         }));
 
@@ -100,12 +110,14 @@ public class ComputerFacade {
         this.decreaseVol.setOnMouseClicked((new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                music.decreaseVolume();
+                String newVolume = music.decreaseVolume();
+                label.setText("Volume: " + newVolume);
             }
         }));
         this.buttonMenu.getChildren().add(this.decreaseVol);
         this.buttonMenu.getChildren().add(this.increaseVol);
         this.setVisible(false);
+
     }
 
     public void on() {
@@ -157,6 +169,7 @@ public class ComputerFacade {
     public void setVisible(boolean visible) {
         this.increaseVol.setVisible(visible);
         this.decreaseVol.setVisible(visible);
+        this.label.setVisible(visible);
     }
 
 }
