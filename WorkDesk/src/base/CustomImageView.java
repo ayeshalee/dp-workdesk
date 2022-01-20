@@ -11,7 +11,7 @@ public class CustomImageView extends Location {
     public CustomImageView(double x, double y, String filename) throws FileNotFoundException {
         super(x, y);
 
-        Image image = new Image(new FileInputStream(this.path + filename));
+        Image image = new Image(new FileInputStream(Location.path + filename));
         this.imageView = new ImageView(image);
         this.imageView.setX(this.x);
         this.imageView.setY(this.y);

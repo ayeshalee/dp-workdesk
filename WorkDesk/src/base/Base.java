@@ -15,9 +15,6 @@ public class Base {
     public void init() {
         try {
 
-            CustomImageView background = new CustomImageView(0, 0, "background.png");
-            this.group.getChildren().add(background.getImageView());
-
             CustomImageView floor = new CustomImageView(0, 611.4, "floor.png");
             this.group.getChildren().add(floor.getImageView());
 
@@ -44,8 +41,8 @@ public class Base {
 
 //			CustomImageView drink = new CustomImageView(412.2, 405.3, "drink.png");
 //			this.group.getChildren().add(drink.getImageView());
-            CustomImageView clock = new CustomImageView(905, 22.1, "clock.png");
-            this.group.getChildren().add(clock.getImageView());
+//            CustomImageView clock = new CustomImageView(905, 22.1, "clock.png");
+//            this.group.getChildren().add(clock.getImageView());
 
             CustomImageView file = new CustomImageView(313.6, 504.1, "file.png");
             this.group.getChildren().add(file.getImageView());
@@ -65,11 +62,11 @@ public class Base {
             CustomImageView cat = new CustomImageView(492.3, 578.1, "cat.png");
             this.group.getChildren().add(cat.getImageView());
 
-            CustomImageView frame = new CustomImageView(528.6, 53.5, "frame.png");
-            this.group.getChildren().add(frame.getImageView());
+//            CustomImageView frame = new CustomImageView(528.6, 53.5, "frame.png");
+//            this.group.getChildren().add(frame.getImageView());
 
-            CustomImageView picture_in_frame = new CustomImageView(535.8, 91.6, "picture_in_frame.png");
-            this.group.getChildren().add(picture_in_frame.getImageView());
+//            CustomImageView picture_in_frame = new CustomImageView(535.8, 91.6, "picture_in_frame.png");
+//            this.group.getChildren().add(picture_in_frame.getImageView());
 
             CustomImageView desklamp = new CustomImageView(773.7, 306.6, "desklamp.png");
             this.group.getChildren().add(desklamp.getImageView());

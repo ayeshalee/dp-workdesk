@@ -1,6 +1,8 @@
 package application;
 
+import DecorateWall.DecorateWall;
 import base.Base;
+import base.CustomImageView;
 import computer.ComputerFacade;
 import food.Food;
 import javafx.application.Application;
@@ -23,9 +25,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-
-            Base background = new Base();
-            Group backgroundGroup = background.getGroup();
+        	
+            Base base = new Base();
+            Group baseGroup = base.getGroup();
 
             Button button = new Button("test");
             button.setLayoutX(250);
@@ -36,15 +38,16 @@ public class Main extends Application {
             buttonMenu.setAlignment(Pos.TOP_CENTER);
             buttonMenu.setSpacing(10);
 //            buttonMenu.setBackground(new Background(new BackgroundFill(Color.BLUE,null,null)));
-
-            Group content = new Group(backgroundGroup);
-
+            
+            DecorateWall decorateWall = new DecorateWall(baseGroup, buttonMenu);
+            
+            Group content = new Group(decorateWall.getGroup(), baseGroup);
+            
             VBox vbox = new VBox(content, buttonMenu);
             Scene scene = new Scene(vbox, this.sceneWidth, this.sceneHeight);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
             //setting color to the scene 
-//			scene.setFill(Color.BROWN);  
             primaryStage.setTitle("WorkDesk");
             primaryStage.setScene(scene);
             primaryStage.show();
