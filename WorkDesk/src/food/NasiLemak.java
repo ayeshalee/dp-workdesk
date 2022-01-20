@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class NasiLemak extends MainDish {
+public class NasiLemak extends AbstractMainDish {
 	
 	public NasiLemak() {
 		this.name = "Nasi Lemak";

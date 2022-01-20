@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class Apple extends SideDish {
+public class Apple extends AbstractSideDish {
 
 	public Apple () {
 		this.name = "Apple ";

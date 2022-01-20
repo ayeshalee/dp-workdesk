@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import base.CustomImageView;
 import javafx.scene.image.ImageView;
 
-public class Fries extends SideDish {
+public class Fries extends AbstractSideDish {
 
 	public Fries() {
 		this.name = "Fries";

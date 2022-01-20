@@ -7,19 +7,19 @@ public class HomeCookedFoodFactory extends FoodFactory {
 	}
 
 	@Override
-	public MainDish createMainDish() {
+	public AbstractMainDish createMainDish() {
 		// TODO Auto-generated method stub
 		return new NasiLemak();
 	}
 
 	@Override
-	public Drink createDrink() {
+	public AbstractDrink createDrink() {
 		// TODO Auto-generated method stub
 		return new Tea();
 	}
 
 	@Override
-	public SideDish createSideDish() {
+	public AbstractSideDish createSideDish() {
 		// TODO Auto-generated method stub
 		return new Yakisoba();
 		

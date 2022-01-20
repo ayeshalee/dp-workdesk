@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class Yakisoba extends SideDish {
+public class Yakisoba extends AbstractSideDish {
 
 	public Yakisoba () {
 		this.name = "Yakisoba ";

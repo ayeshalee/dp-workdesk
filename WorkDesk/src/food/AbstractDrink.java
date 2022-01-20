@@ -2,7 +2,7 @@ package food;
 
 import javafx.scene.image.ImageView;
 
-abstract class Drink {
+abstract class AbstractDrink {
 	String name;
 	FoodImageView imageView; 
 	
@@ -11,7 +11,7 @@ abstract class Drink {
 		
 	}
 	
-	public void setDrink(Drink drink) {
+	public void setDrink(AbstractDrink drink) {
 		this.imageView.getImageView().setImage(drink.getImageView().getImage());
 		this.imageView.getImageView().setX(drink.getImageView().getX());
 		this.imageView.getImageView().setY(drink.getImageView().getY());

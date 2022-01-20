@@ -19,15 +19,14 @@ public class Food {
 	Group group;
 	HBox buttonMenu;
 	Stage stage;
-	Popup popup;
 	Label label;
 	
 	public static final String FOOD_ASSET_PATH = Location.BASIC_PATH + "food\\image\\";
 	String menuType = "Default";
 	
-	MainDish mainDish = null;
-	Drink drink = null;
-	SideDish sideDish = null;
+	AbstractMainDish mainDish = null;
+	AbstractDrink drink = null;
+	AbstractSideDish sideDish = null;
 	
 	FoodFactory factory;
 	
@@ -78,9 +77,9 @@ public class Food {
 	
 	public void setFood(int menuType) {
 		
-		MainDish mainDish1 = null;
-		Drink drink1 = null;
-		SideDish sideDish1 = null;
+		AbstractMainDish mainDish = null;
+		AbstractDrink drink = null;
+		AbstractSideDish sideDish = null;
 		
 		if(menuType == 1) {
 			this.factory = new FastFoodFactory();
@@ -90,14 +89,15 @@ public class Food {
 			this.factory = new HealthyFoodFactory();
 		}
 		
-		mainDish1 = this.factory.createMainDish();
-		drink1 = this.factory.createDrink();
-		sideDish1 = this.factory.createSideDish();
+		this.factory.createFoodFamily();
+		mainDish = this.factory.getMainDish();
+		drink = this.factory.getDrink();
+		sideDish = this.factory.getSideDish();
 		
-		this.setView(mainDish1, drink1, sideDish1);
+		this.setView(mainDish, drink, sideDish);
 	}
 	
-	public void setView(MainDish mainDish, Drink drink, SideDish sideDish) {
+	public void setView(AbstractMainDish mainDish, AbstractDrink drink, AbstractSideDish sideDish) {
 		
 		if(this.mainDish == null) {
 			this.group.getChildren().add(mainDish.getImageView());
@@ -112,7 +112,6 @@ public class Food {
 		}else {
 			this.drink.setDrink(drink);
 		}
-		
 		
 		if(this.sideDish == null) {
 			this.group.getChildren().add(sideDish.getImageView());

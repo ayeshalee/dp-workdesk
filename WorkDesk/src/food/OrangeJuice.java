@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.image.ImageView;
 
-public class OrangeJuice extends Drink{
+public class OrangeJuice extends AbstractDrink{
 
 	public OrangeJuice() {
 		this.name = "Orange Juice";

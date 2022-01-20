@@ -7,20 +7,20 @@ public class WesternFoodFactory extends FoodFactory {
 	}
 
 	@Override
-	public MainDish createMainDish() {
+	public AbstractMainDish createMainDish() {
 		// TODO Auto-generated method stub
 		return new Burger();
 	}
 
 	@Override
-	public Drink createDrink() {
+	public AbstractDrink createDrink() {
 		// TODO Auto-generated method stub
 		return new OrangeJuice();
 		
 	}
 
 	@Override
-	public SideDish createSideDish() {
+	public AbstractSideDish createSideDish() {
 		// TODO Auto-generated method stub
 		return new Fries();
 		
