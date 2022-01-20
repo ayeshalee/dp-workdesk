@@ -55,20 +55,22 @@ public class Music {
         setMusic();
     }
 
-    public void increaseVolume() {
+    public String increaseVolume() {
         if (this.musicVolume < 0.9) {
             this.musicVolume += 0.1;
             this.mediaPlayer.setVolume(this.musicVolume);
             System.out.println((int) Math.round(this.musicVolume * 100) + "%");
         }
+        return (int) Math.round(this.musicVolume * 100) + "%";
     }
 
-    public void decreaseVolume() {
+    public String decreaseVolume() {
         if (musicVolume >= 0.1) {
             musicVolume = this.musicVolume - 0.1;
             this.mediaPlayer.setVolume(this.musicVolume);
             System.out.println((int) Math.round(this.musicVolume * 100) + "%");
         }
+        return (int) Math.round(this.musicVolume * 100) + "%";
     }
 
 }
