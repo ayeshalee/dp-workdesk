@@ -9,7 +9,7 @@ public class Default extends WallDesign {
 	
 	public Default(Group group) {
 		super(group);
-		this.wallpaper = "Stripe";
+		this.wallpaper = "Default";
 	}
 
 	@Override

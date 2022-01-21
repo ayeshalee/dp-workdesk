@@ -42,9 +42,6 @@ public class Base {
             CustomImageView basket = new CustomImageView(189.6, 561.4, "basket.png");
             this.group.getChildren().add(basket.getImageView());
 
-            CustomImageView camera = new CustomImageView(1007.6, 280.1, "camera.png");
-            this.group.getChildren().add(camera.getImageView());
-
             CustomImageView cat = new CustomImageView(492.3, 578.1, "cat.png");
             this.group.getChildren().add(cat.getImageView());
 

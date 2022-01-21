@@ -1,6 +1,5 @@
 package DecorateWall;
 
-import base.CustomImageView;
 import base.Location;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,12 +18,15 @@ public class DecorateWall{
 	HBox buttonMenu;
 	String path = Location.path;
 	WallDesign walldesign;
+	Group baseGroup;
+	Label label;
 	
-	public DecorateWall(HBox buttonMenu) {
+	public DecorateWall(Group baseGroup, HBox buttonMenu) {
 		this.backgroundGroup = new Group();
 		this.walldesign = new Default(this.backgroundGroup);
 		this.walldesign.render();
 		
+		this.baseGroup = baseGroup;
 		this.buttonMenu = buttonMenu;
 		
 		this.init();
@@ -32,6 +34,14 @@ public class DecorateWall{
 	
 
 	public void init() {
+		MenuItem defaultButton = new MenuItem("Default");
+		defaultButton.setOnAction((new EventHandler<ActionEvent>() { 
+			public void handle(ActionEvent t) {
+				System.out.println("Default");
+				setWallpaper("Default");
+			}
+		}));
+		
 		MenuItem marbleButton = new MenuItem("Marble");
 		marbleButton.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
@@ -86,14 +96,22 @@ public class DecorateWall{
 		MenuItem addBookButton = new MenuItem("Book");
 		addBookButton.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
-				addPinnedPaper();
+				addBook();
 			}
 		}));
 		
-		MenuButton menuButton = new MenuButton("Decorate Wall", null, marbleButton, stripeButton,polkadotButton,
-				addclockButton, addFrameButton, addBoardButton, addPinnedPaperButton, addBookButton);
+		MenuButton setWallpaperButton = new MenuButton("Set Wallpaper", null, defaultButton, marbleButton, stripeButton,polkadotButton);
+		MenuButton addDecoration = new MenuButton("Decorate Wall", null, addclockButton, addFrameButton, addBoardButton, addPinnedPaperButton, addBookButton);
 		
-        this.buttonMenu.getChildren().add(menuButton);
+        this.buttonMenu.getChildren().addAll(setWallpaperButton, addDecoration);
+        
+        this.label = new Label("");
+        this.label.setLayoutX(0);
+        this.label.setLayoutY(0);
+        this.label.setStyle("-fx-font-weight: bold;-fx-text-fill:#5E34B1;-fx-background-color:white;");
+        this.label.setPadding(new Insets(5, 5, 5, 5));
+        this.baseGroup.getChildren().add(this.label);
+        
 	}
 	
 	
@@ -104,44 +122,52 @@ public class DecorateWall{
 			this.walldesign = new Marble(this.backgroundGroup);
 		}else if (menuType.equals("Stripe")) {
 			this.walldesign = new Stripe(this.backgroundGroup);
-			
 		}else if (menuType.equals("Polkadot")) {
 			this.walldesign = new Polkadot(this.backgroundGroup);
+		}else {
+			this.walldesign = new Default(this.backgroundGroup);			
 		}
+		
 		this.walldesign.render();
+		this.label.setText(this.walldesign.getWallpaper());
 	}
-        
+    
+    
     public void addClock() {
     	this.walldesign = new Clock(this.walldesign);
     	System.out.println(this.walldesign.getWallpaper());
+    	this.label.setText(this.walldesign.getWallpaper());
     	this.walldesign.render();
     }
         	 
 	public void addFrame() {
 		this.walldesign = new PictureFrame(this.walldesign);
 		System.out.println(this.walldesign.getWallpaper());
+		this.label.setText(this.walldesign.getWallpaper());
 		this.walldesign.render();
 	}
 	
 	public void addBoard() {
 		this.walldesign = new Board(this.walldesign);
 		System.out.println(this.walldesign.getWallpaper());
+		this.label.setText(this.walldesign.getWallpaper());
 		this.walldesign.render();
 	}
 
 	public void addPinnedPaper() {
 		this.walldesign = new PinnedPaper(this.walldesign);
 		System.out.println(this.walldesign.getWallpaper());
+		this.label.setText(this.walldesign.getWallpaper());
 		this.walldesign.render();
 	}
 	
 	public void addBook() {
 		this.walldesign = new Books(this.walldesign);
 		System.out.println(this.walldesign.getWallpaper());
+		this.label.setText(this.walldesign.getWallpaper());
 		this.walldesign.render();
 	}
              
-    	
 	public Group getGroup() {
 		return this.backgroundGroup;
 	}

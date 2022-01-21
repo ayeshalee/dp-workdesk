@@ -37,7 +37,7 @@ public class Main extends Application {
             buttonMenu.setAlignment(Pos.TOP_CENTER);
             buttonMenu.setSpacing(10);
             
-            DecorateWall decorateWall = new DecorateWall(buttonMenu);
+            DecorateWall decorateWall = new DecorateWall(baseGroup, buttonMenu);
             
             Group content = new Group(decorateWall.getGroup(), baseGroup);
             

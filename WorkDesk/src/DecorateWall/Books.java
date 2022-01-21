@@ -22,7 +22,8 @@ public class Books extends WallDeco {
 	public void render() {
 		try {
 			this.customImageView = new CustomImageView(784.3, 168.3, "book.png");
-			this.walldesign.getGroup().getChildren().add(this.customImageView.getImageView());
+			CustomImageView camera = new CustomImageView(1007.6, 280.1, "camera.png");
+			this.walldesign.getGroup().getChildren().addAll(this.customImageView.getImageView(), camera.getImageView());
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
