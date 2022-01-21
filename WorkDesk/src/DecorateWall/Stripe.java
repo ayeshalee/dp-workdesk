@@ -1,17 +1,23 @@
 package DecorateWall;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import base.Location;
-import javafx.scene.image.Image;
+
+import base.CustomImageView;
+import javafx.scene.Group;
 
 public class Stripe extends WallDesign {
 	
-	public Stripe() {
+	public Stripe(Group group) {
+		super(group);
+		this.wallpaper = "Stripe";
+	}
+
+	@Override
+	public void render() {
 		try {
-			this.image = new Image(new FileInputStream(Location.path + "stripe.png"));
+			this.customImageView = new CustomImageView(0, 0, "stripe.png");
+			this.group.getChildren().add(this.customImageView.getImageView());
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

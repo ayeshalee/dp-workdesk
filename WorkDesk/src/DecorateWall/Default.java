@@ -5,21 +5,22 @@ import java.io.FileNotFoundException;
 import base.CustomImageView;
 import javafx.scene.Group;
 
-public class Polkadot extends WallDesign{
+public class Default extends WallDesign {
 	
-	public Polkadot(Group group) {
+	public Default(Group group) {
 		super(group);
-		this.wallpaper = "Polkadot";
+		this.wallpaper = "Stripe";
 	}
 
 	@Override
 	public void render() {
 		try {
-			this.customImageView = new CustomImageView(0, 0, "polka.jpg");
+			this.customImageView = new CustomImageView(0, 0, "background.png");
 			this.group.getChildren().add(this.customImageView.getImageView());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 }
+

@@ -1,19 +1,26 @@
 package DecorateWall;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import base.Location;
-import javafx.scene.image.Image;
+import base.CustomImageView;
+import javafx.scene.Group;
 
 public class Marble extends WallDesign {
 	
-	public Marble() {
+	public Marble(Group group) {
+		super(group);
+		this.wallpaper = "Marble";
 		try {
-			this.image = new Image(new FileInputStream(Location.path + "marble.png"));
+			CustomImageView customImageView = new CustomImageView(0, 0, "marble.png");
+			this.group.getChildren().add(customImageView.getImageView());
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

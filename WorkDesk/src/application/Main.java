@@ -33,13 +33,11 @@ public class Main extends Application {
             button.setLayoutX(250);
             button.setLayoutY(300);
 
-
             HBox buttonMenu = new HBox(button);
             buttonMenu.setAlignment(Pos.TOP_CENTER);
             buttonMenu.setSpacing(10);
-//            buttonMenu.setBackground(new Background(new BackgroundFill(Color.BLUE,null,null)));
             
-            DecorateWall decorateWall = new DecorateWall(baseGroup, buttonMenu);
+            DecorateWall decorateWall = new DecorateWall(buttonMenu);
             
             Group content = new Group(decorateWall.getGroup(), baseGroup);
             

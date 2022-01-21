@@ -1,21 +1,27 @@
 package DecorateWall;
 
+import base.CustomImageView;
 import javafx.scene.Group;
-import javafx.scene.image.Image;
 
 
-public abstract class WallDesign extends Group {
+public abstract class WallDesign {
 	
+	Group group;
 	String wallpaper = "pattern";
-	Image image;
+	CustomImageView customImageView;
+	
+	public WallDesign(Group group) {
+		this.group = group;
+	};
 
 	public String getWallpaper() {
 		return wallpaper;
-	
 	}
 	
-	public Image getImage() {
-		return this.image;
+	public Group getGroup() {
+		return this.group;
 	}
+	
+	public abstract void render();
 		
 }
