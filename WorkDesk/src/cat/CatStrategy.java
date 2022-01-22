@@ -18,24 +18,22 @@ public class CatStrategy {
     HBox buttonMenu;
     String path = Location.path;
     String menuType = "Default";
-    CatMain vArray[] = new CatMain[3];
-    CatMain chosenCat;
+    Cat vArray[] = new Cat[3];
+    Cat chosenCat;
+    String catType;
     CatBehaviour bArray[] = new CatBehaviour[3];
     CatBehaviour chosenBehaviour;
 
-    public CatStrategy(Group group, HBox buttonMenu) {
-        vArray[0] = new blackCat();
-        vArray[1] = new orangeCat();
-        vArray[2] = new siameseCat();
-        
-        bArray[0] = new Sleep();
-        bArray[1] = new Eat();
-        bArray[2] = new Lick();
+    public CatStrategy(Group group, HBox buttonMenu) {   
 
         this.group = group;
         this.buttonMenu = buttonMenu;
         // nanti add default
         // since malas nak dump semo dale constuctor
+        vArray[0] = new blackCat(this.group);
+        vArray[1] = new orangeCat();
+        vArray[2] = new whiteCat();
+        
         this.init();
 
     }
@@ -57,8 +55,8 @@ public class CatStrategy {
             }
         }));
 
-        MenuItem siameseCatButton = new MenuItem("Siamese");
-        siameseCatButton.setOnAction((new EventHandler<ActionEvent>() {
+        MenuItem whiteCatButton = new MenuItem("White Cat");
+        whiteCatButton.setOnAction((new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
                 System.out.println("Santai");
                 SetCat(2);
@@ -89,7 +87,7 @@ public class CatStrategy {
             }
         }));
 
-        MenuButton menuButton = new MenuButton("Choose Cat", null, blackCatButton, orangeCatButton, siameseCatButton);
+        MenuButton menuButton = new MenuButton("Choose Cat", null, blackCatButton, orangeCatButton, whiteCatButton);
         this.buttonMenu.getChildren().add(menuButton);
 
         MenuButton behaviourButton = new MenuButton("Choose Behaviour", null, SleepButton, EatButton, LickButton);
@@ -99,10 +97,20 @@ public class CatStrategy {
     
     public void SetCat(int selection){
         this.chosenCat = this.vArray [selection];
+        if (selection == 0){
+            this.catType = "black";
+        } else if (selection == 1){
+            this.catType = "orange";
+        } else if (selection == 2){
+            this.catType = "white";
+        }
         System.out.println("I am a "+ chosenCat.getClass().getName()+". ");
     }
     
     public void SetCatBehaviour(int selection){
+        bArray[0] = new Sleep(this.group, this.catType);
+        bArray[1] = new Eat(this.group, this.catType);
+        bArray[2] = new Lick(this.group, this.catType);
         this.chosenBehaviour = this.bArray [selection];
 //        System.out.println("I am a "+ chosenBehaviour.getClass().getName()+". ");
         this.chosenCat.setCatBehaviour(this.chosenBehaviour);

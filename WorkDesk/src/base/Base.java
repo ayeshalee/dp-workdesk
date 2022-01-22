@@ -62,8 +62,8 @@ public class Base {
             CustomImageView camera = new CustomImageView(1007.6, 280.1, "camera.png");
             this.group.getChildren().add(camera.getImageView());
 
-            CustomImageView cat = new CustomImageView(492.3, 578.1, "cat.png");
-            this.group.getChildren().add(cat.getImageView());
+//            CustomImageView cat = new CustomImageView(492.3, 578.1, "cat.png");
+//            this.group.getChildren().add(cat.getImageView());
 
             CustomImageView frame = new CustomImageView(528.6, 53.5, "frame.png");
             this.group.getChildren().add(frame.getImageView());

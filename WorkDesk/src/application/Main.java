@@ -1,6 +1,7 @@
 package application;
 
 import base.Base;
+import cat.CatStrategy;
 import computer.ComputerFacade;
 import food.Food;
 import javafx.application.Application;
@@ -18,7 +19,7 @@ import javafx.geometry.Pos;
 public class Main extends Application {
 
     private int sceneWidth = 1080;
-    private int sceneHeight = 770;
+    private int sceneHeight = 680; //770 original 680 tom
 
     @Override
     public void start(Stage primaryStage) {
@@ -50,8 +51,9 @@ public class Main extends Application {
             primaryStage.show();
 
             new Food(content, buttonMenu, primaryStage);
-
             new ComputerFacade(content, buttonMenu);
+            new CatStrategy(content, buttonMenu);
+//            new ComputerFacade(content, buttonMenu);
 
         } catch (Exception e) {
             e.printStackTrace();
