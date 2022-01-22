@@ -5,6 +5,7 @@
  */
 package computer;
 
+import base.Location;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
@@ -92,11 +95,16 @@ public class ComputerFacade {
 
         this.label = new Label("Volume: 50%");
         this.label.setStyle("-fx-font: 20 arial; -fx-font-weight: bold;-fx-text-fill:white;");
-        this.label.setLayoutX(600);
-        this.label.setLayoutY(690);
+        this.label.setLayoutX(550);
+        this.label.setLayoutY(270);
         this.group.getChildren().add(this.label);
 
-        this.increaseVol = new Button("+");
+        Image img_vol_up = new Image(Location.BASIC_PATH + "assets\\volume-up.png");
+        ImageView view_vol_up = new ImageView(img_vol_up);
+        view_vol_up.setFitHeight(15);
+        view_vol_up.setPreserveRatio(true);
+        this.increaseVol = new Button();
+        this.increaseVol.setGraphic(view_vol_up);
         this.increaseVol.setOnMouseClicked((new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -106,7 +114,12 @@ public class ComputerFacade {
             }
         }));
 
-        this.decreaseVol = new Button("-");
+        Image img_vol_down = new Image(Location.BASIC_PATH + "assets\\volume-down.png");
+        ImageView view_vol_down = new ImageView(img_vol_down);
+        view_vol_down.setFitHeight(15);
+        view_vol_down.setPreserveRatio(true);
+        this.decreaseVol = new Button();
+        this.decreaseVol.setGraphic(view_vol_down);
         this.decreaseVol.setOnMouseClicked((new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
