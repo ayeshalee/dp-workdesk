@@ -5,6 +5,7 @@ public abstract class FoodFactory {
 	AbstractMainDish mainDish;
 	AbstractDrink drink;
 	AbstractSideDish sideDish;
+	String name;
 	
 	public FoodFactory() {
 		// TODO Auto-generated constructor stub
@@ -30,5 +31,9 @@ public abstract class FoodFactory {
 
 	public AbstractSideDish getSideDish() {
 		return sideDish;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 }

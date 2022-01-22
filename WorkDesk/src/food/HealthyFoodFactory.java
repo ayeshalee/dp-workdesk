@@ -3,7 +3,7 @@ package food;
 public class HealthyFoodFactory extends FoodFactory {
 
 	public HealthyFoodFactory() {
-		// TODO Auto-generated constructor stub
+		this.name = "Healthy Food";
 	}
 
 	@Override

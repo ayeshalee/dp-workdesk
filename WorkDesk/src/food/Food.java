@@ -40,29 +40,29 @@ public class Food {
 	
 	public void init() {
 		
-		MenuItem menu1 = new MenuItem("Fast Food");
-        MenuItem menu2 = new MenuItem("Home Cooked Food");
-        MenuItem menu3 = new MenuItem("Healthy Food");
-        MenuButton menuButton = new MenuButton("Set Food", null, menu1, menu2, menu3);
+		MenuItem fastFoodMenu = new MenuItem("Fast Food");
+        MenuItem homeCookedFoodMenu = new MenuItem("Home Cooked Food");
+        MenuItem healthyFoodMenu = new MenuItem("Healthy Food");
+        MenuButton menuButton = new MenuButton("Set Food", null, fastFoodMenu, homeCookedFoodMenu, healthyFoodMenu);
         
-		menu1.setOnAction((new EventHandler<ActionEvent>() { 
+        fastFoodMenu.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
-		        menuButton.setText(menu1.getText());
-		        setFood(1);
+		        menuButton.setText(fastFoodMenu.getText());
+		        setFood(fastFoodMenu.getText());
 		    }
          }));
         
-        menu2.setOnAction((new EventHandler<ActionEvent>() { 
+        homeCookedFoodMenu.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
-				menuButton.setText(menu2.getText());
-		        setFood(2);
+				menuButton.setText(homeCookedFoodMenu.getText());
+		        setFood(homeCookedFoodMenu.getText());
 		    }
          }));
         
-        menu3.setOnAction((new EventHandler<ActionEvent>() { 
+        healthyFoodMenu.setOnAction((new EventHandler<ActionEvent>() { 
 			public void handle(ActionEvent t) {
-		        menuButton.setText(menu3.getText());
-		        setFood(3);
+		        menuButton.setText(healthyFoodMenu.getText());
+		        setFood(healthyFoodMenu.getText());
 		    }
          }));
         this.buttonMenu.getChildren().add(menuButton);
@@ -70,31 +70,28 @@ public class Food {
         this.label = new Label("");
         this.label.setStyle("-fx-font-weight: bold;-fx-text-fill:#5E34B1;-fx-background-color:white;");
         this.label.setLayoutX(270.5);
-        this.label.setLayoutY(350);
+        this.label.setLayoutY(300);
         this.label.setPadding(new Insets(5, 5, 5, 5));
         this.group.getChildren().add(this.label);
 	}
 	
-	public void setFood(int menuType) {
+	public void setFood(String foodFamily) {
 		
-		AbstractMainDish mainDish = null;
-		AbstractDrink drink = null;
-		AbstractSideDish sideDish = null;
 		
-		if(menuType == 1) {
+		if(foodFamily.equalsIgnoreCase("Fast Food")) {
 			this.factory = new FastFoodFactory();
-		}else if (menuType == 2) {
+		}else if (foodFamily.equalsIgnoreCase("Home Cooked Food")) {
 			this.factory = new HomeCookedFoodFactory();
-		}else {
+		}else if (foodFamily.equalsIgnoreCase("Healthy Food")) {
 			this.factory = new HealthyFoodFactory();
+		}else {
+			return ;
 		}
 		
 		this.factory.createFoodFamily();
-		mainDish = this.factory.getMainDish();
-		drink = this.factory.getDrink();
-		sideDish = this.factory.getSideDish();
 		
-		this.setView(mainDish, drink, sideDish);
+		
+		this.setView(this.factory.getMainDish(), this.factory.getDrink(), this.factory.getSideDish());
 	}
 	
 	public void setView(AbstractMainDish mainDish, AbstractDrink drink, AbstractSideDish sideDish) {
@@ -120,7 +117,8 @@ public class Food {
 			this.sideDish.setSideDish(sideDish);
 		}
 		
-		String foodText = "Main Dish: " + mainDish.getName() + "\n"
+		String foodText = "Family: " + this.factory.getName() + "\n"
+				+ "Main Dish: " + mainDish.getName() + "\n"
 				+ "Side Dish: " + sideDish.getName() + "\n"
 				+ "Drink: " + drink.getName() + "\n";
 		
