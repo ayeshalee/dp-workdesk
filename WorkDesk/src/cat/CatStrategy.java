@@ -25,7 +25,6 @@ public class CatStrategy {
         this.group = group;
         this.buttonMenu = buttonMenu;
         // nanti add default
-        // since malas nak dump semo dale constuctor
         vArray[0] = new blackCat(this.group);
         vArray[1] = new orangeCat();
         vArray[2] = new whiteCat();
