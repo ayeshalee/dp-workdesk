@@ -32,11 +32,7 @@ public class Main extends Application {
             Base base = new Base();
             Group baseGroup = base.getGroup();
 
-            Button button = new Button("test");
-            button.setLayoutX(250);
-            button.setLayoutY(300);
-
-            HBox buttonMenu = new HBox(button);
+            HBox buttonMenu = new HBox();
             buttonMenu.setAlignment(Pos.TOP_CENTER);
             buttonMenu.setSpacing(10);
             
@@ -49,7 +45,7 @@ public class Main extends Application {
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
             //setting color to the scene 
-            primaryStage.setTitle("WorkDesk");
+            primaryStage.setTitle("WorkDesk Virtual Space");
             primaryStage.setScene(scene);
             primaryStage.show();
 
