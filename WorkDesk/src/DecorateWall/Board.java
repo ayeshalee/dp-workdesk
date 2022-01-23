@@ -20,6 +20,7 @@ public class Board extends WallDeco {
 
 	@Override
 	public void render() {
+		this.walldesign.render();
 		try {
 			this.customImageView = new CustomImageView(319, 140, "board.png");
 			this.walldesign.getGroup().getChildren().add(this.customImageView.getImageView());

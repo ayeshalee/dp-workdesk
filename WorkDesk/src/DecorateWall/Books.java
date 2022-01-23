@@ -20,6 +20,7 @@ public class Books extends WallDeco {
 
 	@Override
 	public void render() {
+		this.walldesign.render();
 		try {
 			this.customImageView = new CustomImageView(784.3, 168.3, "book.png");
 			CustomImageView camera = new CustomImageView(1007.6, 280.1, "camera.png");

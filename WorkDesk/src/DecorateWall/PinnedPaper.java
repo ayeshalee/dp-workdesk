@@ -20,6 +20,7 @@ public class PinnedPaper extends WallDeco {
 
 	@Override
 	public void render() {
+		this.walldesign.render();
 		try {
 			this.customImageView = new CustomImageView(686.6, 144, "pinned_paper.png");
 			this.walldesign.getGroup().getChildren().add(this.customImageView.getImageView());

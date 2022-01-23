@@ -23,6 +23,7 @@ public class Clock extends WallDeco {
 
 	@Override
 	public void render() {
+		this.walldesign.render();
 		try {
 			this.customImageView = new CustomImageView(905, 22.1, "clock.png");
 			this.walldesign.getGroup().getChildren().add(this.customImageView.getImageView());
