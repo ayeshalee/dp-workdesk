@@ -1,33 +1,40 @@
 package cat;
 
+import java.io.FileNotFoundException;
+
+import base.CustomImageView;
 import base.Location;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 public class CatStrategy {
 
     Group group;
     HBox buttonMenu;
-    String path = Location.path;
-    String menuType = "Default";
-    Cat vArray[] = new Cat[3];
     Cat chosenCat;
-    String catType;
-    CatBehaviour bArray[] = new CatBehaviour[3];
-    CatBehaviour chosenBehaviour;
+    
+    ImageView catImageView;
 
     public CatStrategy(Group group, HBox buttonMenu) {   
 
         this.group = group;
         this.buttonMenu = buttonMenu;
-        // nanti add default
-        vArray[0] = new blackCat(this.group);
-        vArray[1] = new orangeCat();
-        vArray[2] = new whiteCat();
+        
+        // initial default image and selected cat (Black Lick)
+        try {
+			this.catImageView = (new CustomImageView(492.3, 530, "black_lick.gif")).getImageView();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+        this.group.getChildren().add(this.catImageView);
+        this.chosenCat = new blackCat(this.catImageView);
+        this.chosenCat.setCatBehaviour(new Lick());
+        this.chosenCat.performMove();
         
         this.init();
 
@@ -91,24 +98,26 @@ public class CatStrategy {
     }
     
     public void SetCat(int selection){
-        this.chosenCat = this.vArray [selection];
         if (selection == 0){
-            this.catType = "black";
+        	this.chosenCat = new blackCat(this.catImageView);
         } else if (selection == 1){
-            this.catType = "orange";
+        	this.chosenCat = new orangeCat(this.catImageView);
         } else if (selection == 2){
-            this.catType = "white";
+        	this.chosenCat = new whiteCat(this.catImageView);
         }
-        System.out.println("I am a "+ chosenCat.getClass().getName()+". ");
+        System.out.println("I am a "+ chosenCat.name + "cat . ");
     }
     
     public void SetCatBehaviour(int selection){
-        bArray[0] = new Sleep(this.group, this.catType);
-        bArray[1] = new Eat(this.group, this.catType);
-        bArray[2] = new Lick(this.group, this.catType);
-        this.chosenBehaviour = this.bArray [selection];
-//        System.out.println("I am a "+ chosenBehaviour.getClass().getName()+". ");
-        this.chosenCat.setCatBehaviour(this.chosenBehaviour);
+    	
+        if (selection == 0){
+        	this.chosenCat.setCatBehaviour(new Sleep());
+        } else if (selection == 1){
+        	this.chosenCat.setCatBehaviour(new Eat());
+        } else if (selection == 2){
+        	this.chosenCat.setCatBehaviour(new Lick());
+        }
+        
         this.chosenCat.performMove();
     }
 }
