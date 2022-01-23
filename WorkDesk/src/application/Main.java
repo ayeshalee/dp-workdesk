@@ -3,6 +3,7 @@ package application;
 import DecorateWall.DecorateWall;
 import base.Base;
 import base.CustomImageView;
+import cat.CatStrategy;
 import computer.ComputerFacade;
 import food.Food;
 import javafx.application.Application;
@@ -22,7 +23,7 @@ import javafx.geometry.Pos;
 public class Main extends Application {
 
     private int sceneWidth = 1080;
-    private int sceneHeight = 770;
+    private int sceneHeight = 770; //770 original 680 tom
 
     @Override
     public void start(Stage primaryStage) {
@@ -53,10 +54,10 @@ public class Main extends Application {
             primaryStage.show();
 
             new Food(content, buttonMenu, primaryStage);
-
             new ComputerFacade(content, buttonMenu);
             new MainLight(content);
-            
+            new CatStrategy(content, buttonMenu);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

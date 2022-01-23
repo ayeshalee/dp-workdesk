@@ -6,6 +6,10 @@ public class Location {
 
     public double x;
     public double y;
+    
+//    public static final String BASIC_PATH = "C:\\Users\\User\\OneDrive - 365.um.edu.my\\BCS SE\\WIF3007 DP\\dp-workdesk\\WorkDesk\\src\\";
+//    public static final String BASIC_URI = "C:/Users/User/OneDrive - 365.um.edu.my/BCS SE/WIF3007 DP/dp-workdesk/WorkDesk/src/";
+    
 //    public static final String BASIC_PATH = "D:\\code\\dp-workdesk\\WorkDesk\\src\\";
 //    public static final String BASIC_URI = "D:/code/dp-workdesk/WorkDesk/src/";
     
