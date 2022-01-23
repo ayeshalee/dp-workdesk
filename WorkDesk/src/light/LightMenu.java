@@ -1,6 +1,5 @@
 package light;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 

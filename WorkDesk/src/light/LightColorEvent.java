@@ -9,7 +9,7 @@ public class LightColorEvent implements LightListener {
     Light light;
     
     public LightColorEvent(Light light){
-        this.light=light;
+        this.light = light;
     }
     
     
