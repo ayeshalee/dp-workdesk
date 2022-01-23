@@ -2,6 +2,7 @@ package base;
 
 import java.io.FileNotFoundException;
 import javafx.scene.Group;
+import javafx.scene.image.ImageView;
 
 public class Base {
 
@@ -44,6 +45,9 @@ public class Base {
 
             CustomImageView cat = new CustomImageView(492.3, 578.1, "cat.png");
             this.group.getChildren().add(cat.getImageView());
+            
+//            CustomImageView light = new CustomImageView(500, 0, "light-1.png");
+//			this.group.getChildren().add(light.getImageView()); 
 
             CustomImageView desklamp = new CustomImageView(773.7, 306.6, "desklamp.png");
             this.group.getChildren().add(desklamp.getImageView());

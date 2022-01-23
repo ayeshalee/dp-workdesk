@@ -7,6 +7,8 @@ import computer.ComputerFacade;
 import food.Food;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import light.Light;
+import light.MainLight;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -53,7 +55,8 @@ public class Main extends Application {
             new Food(content, buttonMenu, primaryStage);
 
             new ComputerFacade(content, buttonMenu);
-
+            new MainLight(content);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

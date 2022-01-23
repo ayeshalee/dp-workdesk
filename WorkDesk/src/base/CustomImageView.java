@@ -3,8 +3,17 @@ package base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import light.Light;
+import light.LightColorEvent;
+import light.LightListener;
+import light.LightMenu;
+import light.LightSwitchEvent;
 
 public class CustomImageView extends Location {
 
@@ -16,6 +25,7 @@ public class CustomImageView extends Location {
         this.imageView.setX(this.x);
         this.imageView.setY(this.y);
         this.imageView.setPreserveRatio(true);
+        
     }
 
     public void setNullImageView() {
