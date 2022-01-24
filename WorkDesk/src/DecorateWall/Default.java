@@ -16,7 +16,10 @@ public class Default extends WallDesign {
 	public void render() {
 		try {
 			this.customImageView = new CustomImageView(0, 0, "background.png");
-			this.group.getChildren().add(this.customImageView.getImageView());
+			CustomImageView floor = new CustomImageView(0, 640.4, "floor.png");
+			this.group.getChildren().addAll(this.customImageView.getImageView() , floor.getImageView());
+
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

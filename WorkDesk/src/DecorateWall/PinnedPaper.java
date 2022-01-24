@@ -6,8 +6,6 @@ import base.CustomImageView;
 
 public class PinnedPaper extends WallDeco {
 	
-	WallDesign walldesign;
-	
 	public PinnedPaper(WallDesign walldesign) {
 		super(walldesign.getGroup());
 		this.walldesign = walldesign;
@@ -32,3 +30,6 @@ public class PinnedPaper extends WallDeco {
 	}
 
 }
+
+
+//WallDesign walldesign;

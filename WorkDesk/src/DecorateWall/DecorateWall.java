@@ -142,7 +142,6 @@ public class DecorateWall{
         	 
 	public void addFrame() {
 		this.walldesign = new PictureFrame(this.walldesign);
-		
 		System.out.println(this.walldesign.getWallpaper());
 		this.label.setText(this.walldesign.getWallpaper());
 		this.walldesign.render();

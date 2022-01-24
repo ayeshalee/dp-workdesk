@@ -16,9 +16,6 @@ public class Base {
     public void init() {
         try {
 
-            CustomImageView floor = new CustomImageView(0, 611.4, "floor.png");
-            this.group.getChildren().add(floor.getImageView());
-
             CustomImageView table = new CustomImageView(283.4, 461, "table.png");
             this.group.getChildren().add(table.getImageView());
 

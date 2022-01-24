@@ -25,3 +25,6 @@ public abstract class WallDesign {
 	public abstract void render();
 		
 }
+
+
+

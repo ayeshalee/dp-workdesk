@@ -16,10 +16,14 @@ public class Stripe extends WallDesign {
 	public void render() {
 		try {
 			this.customImageView = new CustomImageView(0, 0, "stripe.png");
-			this.group.getChildren().add(this.customImageView.getImageView());
+			CustomImageView floor2 = new CustomImageView(0, 640.4, "floor2.jpg");
+			//this.group.getChildren().add(floor.getImageView());
+			this.group.getChildren().addAll(this.customImageView.getImageView() , floor2.getImageView());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 	
 }
+
+

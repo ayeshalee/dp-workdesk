@@ -6,8 +6,6 @@ import base.CustomImageView;
 
 public class Board extends WallDeco {
 	
-	WallDesign walldesign;
-	
 	public Board(WallDesign walldesign) {
 		super(walldesign.getGroup());
 		this.walldesign = walldesign;

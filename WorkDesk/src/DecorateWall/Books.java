@@ -6,8 +6,6 @@ import base.CustomImageView;
 
 public class Books extends WallDeco {
 	
-	WallDesign walldesign;
-	
 	public Books(WallDesign walldesign) {
 		super(walldesign.getGroup());
 		this.walldesign = walldesign;
@@ -32,3 +30,4 @@ public class Books extends WallDeco {
 	}
 
 }
+

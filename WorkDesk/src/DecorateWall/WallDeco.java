@@ -3,6 +3,7 @@ package DecorateWall;
 import javafx.scene.Group;
 
 public abstract class WallDeco extends WallDesign {
+	WallDesign walldesign;
 
 	public WallDeco(Group group) {
 		super(group);
@@ -11,4 +12,6 @@ public abstract class WallDeco extends WallDesign {
 
 	public abstract String getWallpaper();
 }
+
+
 
