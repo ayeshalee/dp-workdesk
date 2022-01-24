@@ -59,7 +59,6 @@ public class Music {
         if (this.musicVolume < 0.9) {
             this.musicVolume += 0.1;
             this.mediaPlayer.setVolume(this.musicVolume);
-//            System.out.println((int) Math.round(this.musicVolume * 100) + "%");
         }
         return (int) Math.round(this.musicVolume * 100) + "%";
     }
@@ -68,7 +67,6 @@ public class Music {
         if (musicVolume >= 0.1) {
             musicVolume = this.musicVolume - 0.1;
             this.mediaPlayer.setVolume(this.musicVolume);
-//            System.out.println((int) Math.round(this.musicVolume * 100) + "%");
         }
         return (int) Math.round(this.musicVolume * 100) + "%";
     }

@@ -33,7 +33,7 @@ public class ComputerFacade {
     Button decreaseVol;
     boolean screenOn = false;
     Label label;
-
+    
     ArrayList<String> modes = new ArrayList<>();
 
     public ComputerFacade(Group group, HBox buttonMenu) {
@@ -54,7 +54,7 @@ public class ComputerFacade {
         mode1.setOnAction((new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                shuffle("relax");
+                select("relax");
             }
         }));
 
@@ -103,21 +103,22 @@ public class ComputerFacade {
         ImageView view_vol_up = new ImageView(img_vol_up);
         view_vol_up.setFitHeight(15);
         view_vol_up.setPreserveRatio(true);
+
+        Image img_vol_down = new Image(Location.BASIC_PATH + "assets\\volume-down.png");
+        ImageView view_vol_down = new ImageView(img_vol_down);
+        view_vol_down.setFitHeight(15);
+        view_vol_down.setPreserveRatio(true);
+
         this.increaseVol = new Button();
         this.increaseVol.setGraphic(view_vol_up);
         this.increaseVol.setOnMouseClicked((new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 String newVolume = music.increaseVolume();
-
                 label.setText("Volume: " + newVolume);
             }
         }));
 
-        Image img_vol_down = new Image(Location.BASIC_PATH + "assets\\volume-down.png");
-        ImageView view_vol_down = new ImageView(img_vol_down);
-        view_vol_down.setFitHeight(15);
-        view_vol_down.setPreserveRatio(true);
         this.decreaseVol = new Button();
         this.decreaseVol.setGraphic(view_vol_down);
         this.decreaseVol.setOnMouseClicked((new EventHandler<MouseEvent>() {
@@ -129,8 +130,8 @@ public class ComputerFacade {
         }));
         this.buttonMenu.getChildren().add(this.decreaseVol);
         this.buttonMenu.getChildren().add(this.increaseVol);
-        this.setVisible(false);
 
+        this.setVisible(false);
     }
 
     public void on() {
